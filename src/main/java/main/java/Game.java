@@ -12,13 +12,11 @@ public class Game extends Messages {
     public String GameOnline;
     public String GameTparser;
 
-    public Game(String GameTitle, String GameCountry, String GameGenre, String GameDescription, String filmThumnail, String GameOnline) {
+    public Game(String GameTitle, String GameThumnail, String GameOnline) {
         this.GameTitle = GameTitle;
-        this.GameCountry = GameCountry;
-        this.GameGenre = GameGenre;
-        this.GameDescription = GameDescription;
-        this.GameThumnail = filmThumnail;
+        this.GameThumnail = GameThumnail;
         this.GameOnline = GameOnline;
+
         this.GameTparser = tparserTorrent(GameTitle);
     }
     public void grtBlockTitle(Game game, Message message){
@@ -36,14 +34,15 @@ public class Game extends Messages {
         sendMsg(message, descriptionFilm);
     }
     public void getBlockOnline(Game game, Message message){
-        sendMsg(message, "▶️ Онлайн - " + game.GameOnline);
+        sendMsg(message, "️ Онлайн - " + game.GameOnline);
     }
     public void getBlockTparser(Game game, Message message){
-        sendMsg(message,"⤵️ Торрент - " + game.GameTparser);
+        sendMsg(message,"️ Торрент - " + game.GameTparser);
     }
     public String tparserTorrent(String title){
         String newTitle = title.replace(' ', '+');
         newTitle = title.replace('"', '+');
+        newTitle = title.replace(' ', '+');
         return "http://tparser.org/" + newTitle;
     }
 }

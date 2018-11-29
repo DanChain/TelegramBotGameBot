@@ -22,7 +22,7 @@ public class User extends AllUsers implements UserSetting{
         user.user_id = message.getChat().getId();
         user.message_text = message.getText();
         user.chat_id = message.getChatId();
-        user.category = "Nice-games-2018";
+        user.category = "top100";
         user.page = 1;
         return user;
     }
